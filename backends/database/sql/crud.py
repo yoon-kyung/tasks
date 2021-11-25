@@ -1,6 +1,5 @@
 from datetime import datetime
 from sqlalchemy.orm import Session
-from sqlalchemy.sql.expression import null
 
 from backends.apps import schemas
 from backends.database import models
