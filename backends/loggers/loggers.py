@@ -5,7 +5,7 @@ import json
 
 def basic_logger(name: str = None, log_path: str = None):
 
-    config = json.load(open("backend/loggers/logger.json"))
+    config = json.load(open("backends/loggers/logger.json"))
     logging.config.dictConfig(config)
 
     return logging.getLogger(name)
