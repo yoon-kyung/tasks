@@ -106,7 +106,7 @@ Response Body
         |— delete_api.py
     |— /core
         |— consts.py
-        |— settings.py
+        |— config.py
     |— /database
         |— session.py
         |— models.py
@@ -114,4 +114,6 @@ Response Body
             |— crud.py
     |— main.py
     |— task.env
+    |— .gitignore
+    |— requirememts.txt
 ```
