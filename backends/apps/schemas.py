@@ -1,8 +1,6 @@
 from typing import Optional
-from pydantic import BaseModel, validator
+from pydantic import BaseModel
 import datetime as dt
-
-from starlette.responses import JSONResponse
 
 class TaskModel(BaseModel):
     

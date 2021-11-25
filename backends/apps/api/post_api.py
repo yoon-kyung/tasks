@@ -1,5 +1,4 @@
 from fastapi import Depends, APIRouter
-from pydantic.networks import EmailStr
 
 from sqlalchemy.orm import Session
 from starlette.responses import JSONResponse

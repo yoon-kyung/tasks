@@ -6,8 +6,6 @@ from backends.database.sql import crud
 from backends.database.session import get_db
 from backends.apps import schemas
 
-from starlette.responses import JSONResponse
-
 ROUTER = APIRouter(tags=["DELETE"])
 
 @ROUTER.delete("/task/{task_id}", response_model=schemas.TaskModel)

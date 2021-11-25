@@ -1,4 +1,4 @@
-from sqlalchemy.sql.expression import false, null
+from sqlalchemy.sql.expression import false
 from backends.database.session import Base
 from sqlalchemy import Column, Integer, Text, Boolean, DateTime
 import datetime
