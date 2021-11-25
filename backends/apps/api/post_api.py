@@ -26,6 +26,7 @@ async def rest_post_task(data: schemas.TaskModel,
         res = await crud.post_task(data=data, db=db)
         db.commit()
     except Exception as e:
+        logger.warning(f"{__name__}.py:::exception발생:::{e}")
         return JSONResponse(status_code=400, content=dict(msg=str(e)))
     
     return res

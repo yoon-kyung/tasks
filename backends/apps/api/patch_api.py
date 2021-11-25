@@ -28,6 +28,7 @@ async def rest_patch_task(task_id,
         db.commit()
 
     except Exception as e:
+        logger.warning(f"{__name__}.py:::exception발생:::{e}")
         return JSONResponse(status_code=400, content=dict(msg=str(e)))
     
     return res
