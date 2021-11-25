@@ -1,6 +1,8 @@
 from fastapi import Depends, APIRouter
+from pydantic.networks import EmailStr
 
 from sqlalchemy.orm import Session
+from starlette.responses import JSONResponse
 
 from backends.database.sql import crud
 from backends.database.session import get_db
@@ -12,7 +14,12 @@ ROUTER = APIRouter(tags=["POST"])
 async def rest_post_task(data: schemas.TaskModel,
                          db: Session = Depends(get_db)):
     
-    res = await crud.post_task(data=data, db=db)
-    db.commit()
+    try:
+        data.validate_task()
+        
+        res = await crud.post_task(data=data, db=db)
+        db.commit()
+    except Exception as e:
+        return JSONResponse(status_code=400, content=dict(msg=str(e)))
     
     return res

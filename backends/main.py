@@ -1,3 +1,4 @@
+from starlette.responses import JSONResponse
 import uvicorn
 from fastapi import FastAPI
 
@@ -6,7 +7,18 @@ from backends.core import consts
 
 from fastapi.middleware.cors import CORSMiddleware
 
+from fastapi.exceptions import RequestValidationError
+
+
 origins = ["http://localhost:8080", "https://localhost:8080"]
+
+app = FastAPI(title=consts.PROJECT_NAME, 
+                version=consts.PROJECT_VERSION)
+
+# validation 통과하지 않는 경우 status code: 400
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request, exc):
+    return JSONResponse(status_code=400, content=dict(msg=str(exc)))
 
 
 def include_router(app):
@@ -17,7 +29,6 @@ def include_router(app):
 
 
 def start_application():
-    app = FastAPI(title=consts.PROJECT_NAME, version=consts.PROJECT_VERSION)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=origins,

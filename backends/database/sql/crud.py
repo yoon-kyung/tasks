@@ -31,7 +31,7 @@ async def get_task(tid: int, db: Session = None):
 
 
 async def post_task(data, db: Session = None):
-    
+        
     # schema를 dictionary로 변경
     if type(data) != dict:
         data = dict(data)

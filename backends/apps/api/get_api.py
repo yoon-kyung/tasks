@@ -9,6 +9,7 @@ from backends.apps import schemas
 
 ROUTER = APIRouter(tags=["GET"])
 
+
 @ROUTER.get("/task", response_model=List[schemas.TaskModel])
 async def rest_get_tasks(db: Session = Depends(get_db)):
     
