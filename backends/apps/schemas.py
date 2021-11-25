@@ -8,7 +8,7 @@ class TaskModel(BaseModel):
     created_at: dt.datetime = None
     updated_at: dt.datetime = None
     deleted_at: dt.datetime = None
-    name: str 
+    name: Optional[str] = None 
     completed: Optional[bool] = None        
     
     class Config:

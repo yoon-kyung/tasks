@@ -151,7 +151,6 @@ Response Body
 Request Body
 ```
 {
-  "name": "백엔드 과제 수정하기",
   "completed": true
 }
 ```
@@ -171,7 +170,7 @@ Response Body
 }
 ```
 - 실패 (STATUS CODE 400)
-- name은 빈값이 되면 안됩니다.
+- (name 수정시) name은 빈값이 되면 안됩니다.
 ```
 {
   "msg": "name은 반드시 입력해야 합니다."

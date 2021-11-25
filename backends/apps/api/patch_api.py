@@ -20,7 +20,8 @@ async def rest_patch_task(task_id,
                          db: Session = Depends(get_db)):
     
     try:
-        data.validate_task()
+        if data.name:
+            data.validate_task()
         
         logger.info(f"{__name__}.py:::{data}")
     
