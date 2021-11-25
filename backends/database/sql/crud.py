@@ -7,10 +7,14 @@ from backends.database import models
 from starlette.responses import JSONResponse
 
 
-async def get_tasks(request = None, db: Session = None, kwlist: list = None):
+async def get_tasks(request = None, db: Session = None, completed: bool = None):
     
     # GET 호출 시 deleted_at이 None이 아닌 것은 return 하지 않는다.
-    tasks = db.query(models.Task).filter(models.Task.deleted_at == None).all()
+    and_conditions = [models.Task.deleted_at == None]
+    if completed is not None:
+        and_conditions.append(models.Task.completed == completed)
+    
+    tasks = db.query(models.Task).filter(*and_conditions).all()
     
     res = [schemas.TaskModel.from_orm(task) for task in tasks]
     if not res:

@@ -1,5 +1,5 @@
 from fastapi import Depends, Request, APIRouter
-from typing import List
+from typing import List, Optional
 
 from sqlalchemy.orm import Session
 
@@ -11,9 +11,11 @@ ROUTER = APIRouter(tags=["GET"])
 
 
 @ROUTER.get("/task", response_model=List[schemas.TaskModel])
-async def rest_get_tasks(db: Session = Depends(get_db)):
+async def rest_get_tasks(db: Session = Depends(get_db),
+                         completed: Optional[bool] = None, 
+                         request: Request = None):
     
-    res = await crud.get_tasks(db=db)
+    res = await crud.get_tasks(db=db, completed=completed)
     
     return res
 
