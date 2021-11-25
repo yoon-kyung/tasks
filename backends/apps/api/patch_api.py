@@ -8,6 +8,10 @@ from backends.apps import schemas
 
 from starlette.responses import JSONResponse
 
+from backends.loggers.loggers import basic_logger
+logger = basic_logger("bo_report")
+
+
 ROUTER = APIRouter(tags=["PATCH"])
 
 @ROUTER.patch("/task/{task_id}", response_model=schemas.TaskModel)
@@ -17,6 +21,8 @@ async def rest_patch_task(task_id,
     
     try:
         data.validate_task()
+        
+        logger.info(f"{__name__}.py:::{data}")
     
         res = await crud.patch_task(tid=task_id, data=data, db=db)
         db.commit()
