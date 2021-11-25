@@ -140,7 +140,7 @@ Response Body
   "msg": "name은 반드시 입력해야 합니다."
 }
 ```
-- completed의 데이터 타입은 boolean 입니다.
+- completed의 데이터 타입은 boolean 입니다. (STATUS CODE 400)
 ```
 {
   "msg": "1 validation error for Request\nbody -> 38\n  Expecting value: line 3 column 16 (char 38) (type=value_error.jsondecode; msg=Expecting value; doc={\n  \"name\": \"완료된 과제3\",\n  \"completed\": 'haha'\n}; pos=38; lineno=3; colno=16)"
@@ -169,14 +169,14 @@ Response Body
   "completed": true
 }
 ```
-- 실패 (STATUS CODE 400)
-- (name 수정시) name은 빈값이 되면 안됩니다.
+- 실패
+- (name 수정시) name은 빈값이 되면 안됩니다. (STATUS CODE 400)
 ```
 {
   "msg": "name은 반드시 입력해야 합니다."
 }
 ```
-- completed의 데이터 타입은 boolean 입니다.
+- completed의 데이터 타입은 boolean 입니다. (STATUS CODE 400)
 ```
 {
   "msg": "1 validation error for Request\nbody -> completed\n  value could not be parsed to a boolean (type=type_error.bool)"
