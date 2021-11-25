@@ -11,7 +11,7 @@ from starlette.responses import JSONResponse
 ROUTER = APIRouter(tags=["DELETE"])
 
 @ROUTER.delete("/task/{task_id}", response_model=schemas.TaskModel)
-async def rest_delete_task(task_id: int = None,
+async def rest_delete_task(task_id,
                          db: Session = Depends(get_db)):
     
     res = await crud.delete_task(tid=task_id, db=db)

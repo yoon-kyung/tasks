@@ -16,6 +16,7 @@ async def rest_patch_task(task_id,
                          db: Session = Depends(get_db)):
     
     try:
+        data.validate_task()
     
         res = await crud.patch_task(tid=task_id, data=data, db=db)
         db.commit()
