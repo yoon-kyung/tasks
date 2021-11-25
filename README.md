@@ -25,9 +25,30 @@ docker-compose up -d
 Response Body
 - 성공
 ```
+[
+  {
+    "id": 3,
+    "created_at": "2021-11-25T13:55:35",
+    "updated_at": "2021-11-25T13:55:35",
+    "deleted_at": null,
+    "name": "백엔드 과제 만들기",
+    "completed": false
+  },
+  {
+    "id": 4,
+    "created_at": "2021-11-25T13:55:39",
+    "updated_at": "2021-11-25T13:55:39",
+    "deleted_at": null,
+    "name": "백엔드 과제 만들기",
+    "completed": false
+  }
+]
 ```
 - 데이터가 없는 경우
 ```
+{
+  "msg": "데이터가 없습니다."
+}
 ```
 - 실패
 ```
@@ -40,6 +61,9 @@ Response Body
 ```
 - 데이터가 없는 경우
 ```
+{
+  "msg": "데이터가 없습니다."
+}
 ```
 - 실패
 ```
@@ -51,13 +75,18 @@ Request Body
 ```
 
 Response Body
-- 문제에서는 no response body지만 추후 필요한 경우가 생길 수 있으니 작성한 내용을 Response Body로 지정했습니다.
+- 문제에서는 no response body지만 실제 서비스라면 추후 필요한 경우가 생길 수 있으니 작성한 내용을 Response Body로 지정했습니다.
 
 - 성공
 ```
-```
-- 데이터가 없는 경우
-```
+{
+  "id": 1,
+  "created_at": "2021-11-25T13:53:03.976369",
+  "updated_at": "2021-11-25T13:53:03.976377",
+  "deleted_at": null,
+  "name": "백엔드 과제 만들기",
+  "completed": false
+}
 ```
 - 실패
 ```
@@ -69,13 +98,18 @@ Request Body
 ```
 
 Response Body
-- 문제에서는 no response body지만 추후 필요한 경우가 생길 수 있으니 수정한 내용을 Response Body로 지정했습니다.
+- 문제에서는 no response body지만 실제 서비스라면 추후 필요한 경우가 생길 수 있으니 수정한 내용을 Response Body로 지정했습니다.
 
 - 성공
 ```
-```
-- 데이터가 없는 경우
-```
+{
+  "id": 1,
+  "created_at": "2021-11-25T13:53:04",
+  "updated_at": "2021-11-25T13:53:55.482324",
+  "deleted_at": null,
+  "name": "백엔드 과제 만들기",
+  "completed": true
+}
 ```
 - 실패
 ```
@@ -83,14 +117,25 @@ Response Body
 
 ### 5. DELETE /task/:task_id
 Response Body
-- 문제에서는 no response body지만 추후 필요한 경우가 생길 수 있으니 삭제한 내용을 Response Body로 지정했습니다.
+- 문제에서는 no response body지만 실제 서비스라면 추후 필요한 경우가 생길 수 있으니 삭제한 내용을 Response Body로 지정했습니다.
 ```
+{
+  "id": 1,
+  "created_at": "2021-11-25T13:53:04",
+  "updated_at": "2021-11-25T13:54:53.356743",
+  "deleted_at": "2021-11-25T22:54:53.355970",
+  "name": "백엔드 과제 만들기",
+  "completed": true
+}
 ```
 
 ### 6. DELETE /task
 Response Body
-- 문제에서는 no response body지만 추후 필요한 경우가 생길 수 있으니 삭제한 게시글 수를 Response Body로 지정했습니다.
+- 문제에서는 no response body지만 실제 서비스라면 추후 필요한 경우가 생길 수 있으니 삭제한 게시글 수를 Response Body로 지정했습니다.
 ```
+{
+  "msg": "삭제된 게시글은 총 1개 입니다."
+}
 ```
 
 ----
