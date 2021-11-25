@@ -6,8 +6,6 @@ from backends.core import consts
 
 from fastapi.middleware.cors import CORSMiddleware
 
-from backends.database.sql.crud import patch_task
-
 origins = ["http://localhost:8080", "https://localhost:8080"]
 
 
